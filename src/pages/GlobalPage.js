@@ -68,17 +68,19 @@ function GlobalPage() {
       <ThemedBackground backgroundColor={transparentize(0.8, '#00ABFF')} />
       <ContentWrapper>
         <div>
+          { /* Top */ }
           <AutoColumn gap="24px" style={{ paddingBottom: below800 ? '0' : '24px' }}>
             <TYPE.largeHeader>{below800 ? 'Protocol Analytics' : 'Sashimiswap Protocol Analytics'}</TYPE.largeHeader>
             <Search />
             <GlobalStats />
           </AutoColumn>
+          {/* Graphs */}
           {below800 && ( // mobile card
             <Box mb={20}>
               <Panel>
                 <Box>
                   <AutoColumn gap="36px">
-                    <AutoColumn gap="20px">
+                    <AutoColumn gap="20px" id="volume-change-graph">
                       <RowBetween>
                         <TYPE.main>Volume (24hrs)</TYPE.main>
                         <div />
@@ -90,7 +92,7 @@ function GlobalPage() {
                         <TYPE.main fontSize={12}>{formattedPercent(volumeChangeUSD)}</TYPE.main>
                       </RowBetween>
                     </AutoColumn>
-                    <AutoColumn gap="20px">
+                    <AutoColumn gap="20px" id="liquidity-change-graph">
                       <RowBetween>
                         <TYPE.main>Total Liquidity</TYPE.main>
                         <div />
@@ -109,10 +111,10 @@ function GlobalPage() {
           )}
           {!below800 && (
             <GridRow>
-              <Panel style={{ height: '100%', minHeight: '300px' }}>
+              <Panel style={{ height: '100%', minHeight: '300px' }} id="liquidity-change-graph">
                 <GlobalChart display="liquidity" />
               </Panel>
-              <Panel style={{ height: '100%' }}>
+              <Panel style={{ height: '100%' }} id="volume-change-graph">
                 <GlobalChart display="volume" />
               </Panel>
             </GridRow>
