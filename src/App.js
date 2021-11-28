@@ -63,12 +63,13 @@ const Center = styled.div`
  * Wrap the component with the header and sidebar pinned tab
  */
 const LayoutWrapper = ({ children, savedOpen, setSavedOpen }) => {
+
   return (
     <>
       <ContentWrapper open={savedOpen}>
-        <SideNav />
-        <Center id="center">{children}</Center>
-        <Right open={savedOpen}>
+        <SideNav id="side-nav-compose"/>
+        <Center id="center-compose">{children}</Center>
+        <Right id="right-panel-compose" open={savedOpen}>
           <PinnedData open={savedOpen} setSavedOpen={setSavedOpen} />
         </Right>
       </ContentWrapper>
