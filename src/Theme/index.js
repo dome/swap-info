@@ -31,16 +31,21 @@ const theme = (darkMode, color) => ({
   text4: darkMode ? '#565A69' : '#C3C5CB',
   text5: darkMode ? '#2C2F36' : '#EDEEF2',
 
+  newText1: darkMode ? '#0069B5' : '#0069B5',
+  newText3: darkMode ? '#6C7284' : '#FFFFFF',
+
   // special case text types
   white: '#FFFFFF',
 
   // backgrounds / greys
-  bg1: darkMode ? '#212429' : '#FAFAFA',
+  bg1: darkMode ? '#212429' : '#FAFAFA', // Left most panel
   bg2: darkMode ? '#2C2F36' : '#F7F8FA',
-  bg3: darkMode ? '#40444F' : '#EDEEF2',
+  bg3: darkMode ? '#40444F' : '#EDEEF2', // Panel borders
   bg4: darkMode ? '#565A69' : '#CED0D9',
   bg5: darkMode ? '#565A69' : '#888D9B',
   bg6: darkMode ? '#000' : '#FFFFFF',
+
+  bgNew1: darkMode ? '#183550': '#BFCFDC',
 
   //specialty colors
   modalBG: darkMode ? 'rgba(0,0,0,0.85)' : 'rgba(0,0,0,0.6)',
@@ -61,6 +66,8 @@ const theme = (darkMode, color) => ({
   primary3: '#e07d26',
   primary4: darkMode ? '#376bad70' : '#f5d9cb',
   primary5: darkMode ? '#153d6f70' : '#f7e3d8',
+  
+  primaryNew1: '#00324a',
 
   // color text
   // primaryText1: darkMode ? '#6da8ff' : '#d45d02',
@@ -81,10 +88,10 @@ const theme = (darkMode, color) => ({
   yellow2: '#F3841E',
   // link: '#2172E5',
   sashimiYellow: '#d45d02',
-  link: '#d45d02',
+  link: '#00ABFF',
   // blue: '#2f80ed',
 
-  background: darkMode ? 'black' : `radial-gradient(50% 50% at 50% 50%, #D45D0230 0%, #fff 0%)`,
+  background: darkMode ? 'black' : `radial-gradient(50% 50% at 50% 50%,rgb(2 120 212 / 39%) 0%`, // Background decoration
   backgroundNav: darkMode
     ? 'linear-gradient(193.68deg, #1b1c22 0.68%, #000000 100.48%)'
     : `linear-gradient(193.68deg, #1b1c22 0.68%, #D45D02 100.48%)`
@@ -112,11 +119,11 @@ export const TYPE = {
   },
 
   largeHeader(props) {
-    return <TextWrapper fontWeight={500} color={'text1'} fontSize={24} {...props} />
+    return <TextWrapper fontWeight={500} color={'newText1'} fontSize={24} {...props} />
   },
 
   light(props) {
-    return <TextWrapper fontWeight={400} color={'text3'} fontSize={14} {...props} />
+    return <TextWrapper fontWeight={400} color={'newText3'} fontSize={14} {...props} />
   },
 
   pink(props) {
@@ -159,8 +166,7 @@ export const ThemedBackground = styled.div`
   max-width: 100vw !important;
   height: 200vh;
   mix-blend-mode: color;
-  background: ${({ backgroundColor }) =>
-    `radial-gradient(50% 50% at 50% 50%, ${backgroundColor} 0%, rgba(255, 255, 255, 0) 100%)`};
+  background: ${({ backgroundColor }) => (`radial-gradient(50% 50% at 50% 50%, ${backgroundColor} 0%, rgba(255, 255, 255, 0) 100%)`)};
   position: absolute;
   top: 0px;
   left: 0px;
