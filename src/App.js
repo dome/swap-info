@@ -47,7 +47,6 @@ const Right = styled.div`
   width: ${({ open }) => (open ? '220px' : '64px')};
   height: ${({ open }) => (open ? 'fit-content' : '64px')};
   overflow: scroll;
-  background-color: ${({ theme }) => theme.bg1};
   @media screen and (max-width: 1400px) {
     display: none;
   }
@@ -57,7 +56,7 @@ const Center = styled.div`
   height: 100%;
   z-index: 9999;
   transition: width 0.25s ease;
-  background-color: ${({ theme }) => theme.onlyLight};
+  background-color: ${({ theme }) => (theme.bgNew1)};
 `
 
 /**
