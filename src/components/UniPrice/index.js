@@ -35,12 +35,18 @@ export default function UniPrice() {
       : 0
   }, [stablePair])
 
+  const selectedStableCoin = stablePair[`token${process.env.REACT_APP_STABLE_NATIVE_PAIR_STABLE_INDEX}`]
+  const stableCoinSymbol = selectedStableCoin.symbol || "Unknown"
+
   const usdPerEth = stablePair ? parseFloat(stablePair[`token${process.env.REACT_APP_STABLE_NATIVE_PAIR_STABLE_INDEX}Price`]).toFixed(2) : '-'
   return (
     <PriceCard>
       <AutoColumn gap="10px">
         <RowFixed>
-          <TYPE.main>{stablePair[`token${process.env.REACT_APP_STABLE_NATIVE_PAIR_STABLE_INDEX}`].symbol}/{NATIVE_TOKEN_SYMBOL}: {formattedNum(usdPerEth, true)}</TYPE.main>
+          {/* 
+            TODO: Fix this fatal bug
+          */}
+          <TYPE.main>{stableCoinSymbol}/{NATIVE_TOKEN_SYMBOL}: {formattedNum(usdPerEth, true)}</TYPE.main>
           <TYPE.light style={{ marginLeft: '10px' }}>
             {stablePair && totalLiquidity ? formatPercent(stablePair.trackedReserveUSD / totalLiquidity) : '-'}
           </TYPE.light>
