@@ -71,7 +71,7 @@ export function getPoolLink(token0Address, token1Address = null, remove = false)
     )
   } else {
     return (
-      `${EXCHANGE_PREFIX}/#` +
+      `${EXCHANGE_PREFIX}/` +
       (remove ? `remove` : `add`) +
       `/${token0Address === WETH ? nativeTokenSymbol : token0Address}/${token1Address === WETH ? nativeTokenSymbol : token1Address
       }`
