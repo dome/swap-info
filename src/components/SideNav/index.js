@@ -41,11 +41,12 @@ const Wrapper = styled.div`
   }
 `
 
-const Option = styled.div`
+const OptionWrapper = styled.div`
   font-weight: 500;
   font-size: 14px;
   opacity: ${({ activeText }) => (activeText ? 1 : 0.6)};
-  color: ${({ theme }) => theme.white};
+  // color: ${({ theme }) => theme.white};
+  color: ${({ isDark, theme }) => (isDark ? theme.white : '#00324a')};
   display: flex;
   :hover {
     opacity: 1;
@@ -215,6 +216,11 @@ function SideNav({ history }) {
       )}
     </Wrapper>
   )
+}
+
+const Option = (props) => {
+  const [isDark] = useDarkModeManager()
+  return (<OptionWrapper isDark={isDark} {...props} ></OptionWrapper>)
 }
 
 export default withRouter(SideNav)
