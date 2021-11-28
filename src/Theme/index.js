@@ -17,12 +17,12 @@ const theme = (darkMode, color) => ({
   panelColor: darkMode ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 0)',
   backgroundColor: darkMode ? '#212429' : '#F7F8FA',
 
-  sashimiswapyellow: darkMode ? '#D45D02' : 'black',
+  sashimiswapyellow: darkMode ? '#0268d4' : 'black',
 
   concreteGray: darkMode ? '#292C2F' : '#FAFAFA',
   inputBackground: darkMode ? '#1F1F1F' : '#FAFAFA',
   // shadowColor: darkMode ? '#000' : '#2F80ED',
-  shadowColor: darkMode ? '#000' : '#d45d02',
+  shadowColor: darkMode ? '#000' : '#0268d4',
   mercuryGray: darkMode ? '#333333' : '#E1E1E1',
 
   text1: darkMode ? '#FAFAFA' : '#1F1F1F',
@@ -49,30 +49,30 @@ const theme = (darkMode, color) => ({
   divider: darkMode ? 'rgba(43, 43, 43, 0.435)' : 'rgba(43, 43, 43, 0.035)',
 
   //primary colors
-  primary: '#d45d02',
-  primaryPink: '#D45D02',
-  // primary1: darkMode ? '#2172E5' : '#d45d02',
+  primary: '#0268d4',
+  primaryPink: '#0268d4',
+  // primary1: darkMode ? '#2172E5' : '#0268d4',
   // primary2: darkMode ? '#3680E7' : '#e07d26',
   // primary3: darkMode ? '#4D8FEA' : '#e07d26',
   // primary4: darkMode ? '#376bad70' : '#f5d9cb',
-  // primary5: darkMode ? '#153d6f70' : '#f7e3d8',
-  primary1: '#d45d02',
+  // primary5: darkMode ? '#153d6f70' : '#d8eaf7',
+  primary1: '#0268d4',
   primary2: '#e07d26',
   primary3: '#e07d26',
-  primary4: darkMode ? '#376bad70' : '#f5d9cb',
-  primary5: darkMode ? '#153d6f70' : '#f7e3d8',
+  primary4: darkMode ? '#376bad70' : '#E1E1E1',
+  primary5: darkMode ? '#153d6f70' : '#d8eaf7',
 
   // color text
-  // primaryText1: darkMode ? '#6da8ff' : '#d45d02',
-  primaryText1: '#d45d02',
+  // primaryText1: darkMode ? '#6da8ff' : '#0268d4',
+  primaryText1: '#0268d4',
 
   // secondary colors
-  // secondary1: darkMode ? '#2172E5' : '#d45d02',
-  secondary1: '#d45d02',
+  // secondary1: darkMode ? '#2172E5' : '#0268d4',
+  secondary1: '#0268d4',
   secondary2: darkMode ? '#17000b26' : '#f5d9cb',
-  secondary3: darkMode ? '#17000b26' : '#f7e3d8',
+  secondary3: darkMode ? '#17000b26' : '#d8eaf7',
 
-  shadow1: darkMode ? '#000' : '#d45d02',
+  shadow1: darkMode ? '#000' : '#0268d4',
 
   // other
   red1: '#FF6871',
@@ -80,14 +80,14 @@ const theme = (darkMode, color) => ({
   yellow1: '#FFE270',
   yellow2: '#F3841E',
   // link: '#2172E5',
-  sashimiYellow: '#d45d02',
-  link: '#d45d02',
+  sashimiYellow: '#0268d4',
+  link: '#0268d4',
   // blue: '#2f80ed',
 
-  background: darkMode ? 'black' : `radial-gradient(50% 50% at 50% 50%, #D45D0230 0%, #fff 0%)`,
+  background: darkMode ? 'black' : `radial-gradient(50% 50% at 50% 50%, #0268d430 0%, #fff 0%)`,
   backgroundNav: darkMode
     ? 'linear-gradient(193.68deg, #1b1c22 0.68%, #000000 100.48%)'
-    : `linear-gradient(193.68deg, #1b1c22 0.68%, #D45D02 100.48%)`
+    : `linear-gradient(193.68deg, #1b1c22 0.68%, #0268d4 100.48%)`
 })
 
 const TextWrapper = styled(Text)`

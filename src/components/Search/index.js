@@ -144,7 +144,7 @@ const Gray = styled.span`
 `
 
 const SashimiYellow = styled.span`
-  color: #d45d02;
+  color: #0268d4;
   :hover {
     cursor: pointer;
   }
