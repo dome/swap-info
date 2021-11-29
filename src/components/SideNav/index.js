@@ -12,6 +12,7 @@ import Link from '../Link'
 import { useSessionStart } from '../../contexts/Application'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
 import Toggle from '../Toggle'
+import backgroundImg from '../../assets/background.jpg'
 
 // todo: 修改颜色，链接
 
@@ -25,7 +26,9 @@ const Wrapper = styled.div`
   z-index: 9999;
   box-sizing: border-box;
   /* background-color: #1b1c22; */
-  background: ${({ theme }) => theme.backgroundNav};
+  // background: ${({ theme }) => theme.backgroundNav};
+  background-image: url("${backgroundImg}");
+  background-position: ${({ isDark }) => (isDark ? 'center bottom' : 'center center' )};
   color: ${({ theme }) => theme.bg2};
 
   @media screen and (max-width: 800px) {
@@ -38,11 +41,12 @@ const Wrapper = styled.div`
   }
 `
 
-const Option = styled.div`
+const OptionWrapper = styled.div`
   font-weight: 500;
   font-size: 14px;
   opacity: ${({ activeText }) => (activeText ? 1 : 0.6)};
-  color: ${({ theme }) => theme.white};
+  // color: ${({ theme }) => theme.white};
+  color: ${({ isDark, theme }) => (isDark ? theme.white : '#00324a')};
   display: flex;
   :hover {
     opacity: 1;
@@ -111,7 +115,7 @@ function SideNav({ history }) {
   const [isDark, toggleDarkMode] = useDarkModeManager()
 
   return (
-    <Wrapper isMobile={below1080}>
+    <Wrapper isMobile={below1080} isDark={isDark} id="side-nav-component">
       {!below1080 ? (
         <DesktopWrapper>
           <AutoColumn gap="1rem" style={{ marginLeft: '.75rem', marginTop: '1.5rem' }}>
@@ -212,6 +216,11 @@ function SideNav({ history }) {
       )}
     </Wrapper>
   )
+}
+
+const Option = (props) => {
+  const [isDark] = useDarkModeManager()
+  return (<OptionWrapper isDark={isDark} {...props} ></OptionWrapper>)
 }
 
 export default withRouter(SideNav)

@@ -80,7 +80,7 @@ const GlobalChart = ({ display }) => {
     <>
       {/*todo: 确认主题颜色*/}
       {below800 && (
-        <DropdownSelect options={CHART_VIEW} active={chartView} setActive={setChartView} color={'#D45D02'} />
+        <DropdownSelect options={CHART_VIEW} active={chartView} setActive={setChartView} color={'#00abff'} />
       )}
 
       {chartDataFiltered && chartView === CHART_VIEW.LIQUIDITY && (

@@ -47,7 +47,6 @@ const Right = styled.div`
   width: ${({ open }) => (open ? '220px' : '64px')};
   height: ${({ open }) => (open ? 'fit-content' : '64px')};
   overflow: scroll;
-  background-color: ${({ theme }) => theme.bg1};
   @media screen and (max-width: 1400px) {
     display: none;
   }
@@ -57,19 +56,20 @@ const Center = styled.div`
   height: 100%;
   z-index: 9999;
   transition: width 0.25s ease;
-  background-color: ${({ theme }) => theme.onlyLight};
+  background-color: ${({ theme }) => (theme.bgNew1)};
 `
 
 /**
  * Wrap the component with the header and sidebar pinned tab
  */
 const LayoutWrapper = ({ children, savedOpen, setSavedOpen }) => {
+
   return (
     <>
       <ContentWrapper open={savedOpen}>
-        <SideNav />
-        <Center id="center">{children}</Center>
-        <Right open={savedOpen}>
+        <SideNav id="side-nav-compose"/>
+        <Center id="center-compose">{children}</Center>
+        <Right id="right-panel-compose" open={savedOpen}>
           <PinnedData open={savedOpen} setSavedOpen={setSavedOpen} />
         </Right>
       </ContentWrapper>

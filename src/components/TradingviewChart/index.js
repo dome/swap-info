@@ -8,6 +8,7 @@ import { usePrevious } from 'react-use'
 import { Play } from 'react-feather'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
 import { IconWrapper } from '..'
+import { useTheme } from '../../Theme'
 
 dayjs.extend(utc)
 
@@ -23,16 +24,18 @@ const Wrapper = styled.div`
 // constant height for charts
 const HEIGHT = 300
 
-const TradingViewChart = ({
-  type = CHART_TYPES.BAR,
-  data,
-  base,
-  baseChange,
-  field,
-  title,
-  width,
-  useWeekly = false
-}) => {
+const TradingViewChart = (props) => {
+  const {
+    type = CHART_TYPES.BAR,
+    data,
+    base,
+    baseChange,
+    field,
+    title,
+    width,
+    useWeekly = false
+  } = props
+
   // reference for DOM element to create with chart
   const ref = useRef()
 
@@ -129,7 +132,7 @@ const TradingViewChart = ({
       var series =
         type === CHART_TYPES.BAR
           ? chart.addHistogramSeries({
-              color: '#D45D02',
+              color: '#216FB3', //<<<
               priceFormat: {
                 type: 'volume'
               },
@@ -137,13 +140,13 @@ const TradingViewChart = ({
                 top: 0.32,
                 bottom: 0
               },
-              lineColor: '#D45D02',
+              lineColor: '#216FB3',
               lineWidth: 3
             })
           : chart.addAreaSeries({
-              topColor: '#D45D02',
-              bottomColor: 'rgba(255, 0, 122, 0)',
-              lineColor: '#D45D02',
+              topColor: '#216FB3',
+              bottomColor: 'rgba(33, 111,179, 0.25)',
+              lineColor: '#216FB3',
               lineWidth: 3
             })
 

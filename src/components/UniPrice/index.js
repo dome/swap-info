@@ -28,19 +28,25 @@ function formatPercent(rawPercent) {
 export default function UniPrice() {
   // todo: 修改稳定币与WETH pair的地址, 注意pair中token的顺序，注意小写
   const stablePair = usePairData(process.env.REACT_APP_STABLE_NATIVE_PAIR_ADDRESS)
-
+  console.log(stablePair)
   const totalLiquidity = useMemo(() => {
     return stablePair
       ? stablePair.trackedReserveUSD
       : 0
   }, [stablePair])
 
+  const selectedStableCoin = stablePair[`token${process.env.REACT_APP_STABLE_NATIVE_PAIR_STABLE_INDEX}`]
+  const stableCoinSymbol = selectedStableCoin.symbol || "Unknown"
+
   const usdPerEth = stablePair ? parseFloat(stablePair[`token${process.env.REACT_APP_STABLE_NATIVE_PAIR_STABLE_INDEX}Price`]).toFixed(2) : '-'
   return (
     <PriceCard>
       <AutoColumn gap="10px">
         <RowFixed>
-          <TYPE.main>{stablePair[`token${process.env.REACT_APP_STABLE_NATIVE_PAIR_STABLE_INDEX}`].symbol}/{NATIVE_TOKEN_SYMBOL}: {formattedNum(usdPerEth, true)}</TYPE.main>
+          {/* 
+            TODO: Fix this fatal bug
+          */}
+          <TYPE.main>{stableCoinSymbol}/{NATIVE_TOKEN_SYMBOL}: {formattedNum(usdPerEth, true)}</TYPE.main>
           <TYPE.light style={{ marginLeft: '10px' }}>
             {stablePair && totalLiquidity ? formatPercent(stablePair.trackedReserveUSD / totalLiquidity) : '-'}
           </TYPE.light>

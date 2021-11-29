@@ -6,7 +6,7 @@ import Link from '../Link'
 // todo: change link
 const links = [
   // { url: 'https://aelf.io', text: 'About' },
-  { url: 'https://sashimi.cool/files/MarExchange_protocol.pdf', text: 'Docs' },
+  { url: 'https://sashimi.cool/files/SashimiSwap_protocol.pdf', text: 'Docs' },
   { url: 'https://github.com/SashimiProject/sashimi-swap-info', text: 'Code' }
 ]
 

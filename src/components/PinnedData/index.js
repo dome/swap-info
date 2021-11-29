@@ -11,6 +11,8 @@ import AccountSearch from '../AccountSearch'
 import { Bookmark, ChevronRight, X } from 'react-feather'
 import { ButtonFaded } from '../ButtonStyled'
 import FormattedName from '../FormattedName'
+import { useDarkModeManager } from '../../contexts/LocalStorage'
+
 
 const RightColumn = styled.div`
   position: fixed;
@@ -20,7 +22,7 @@ const RightColumn = styled.div`
   width: ${({ open }) => (open ? '160px' : '23px')};
   padding: 1.25rem;
   border-left: ${({ theme, open }) => '1px solid' + theme.bg3};
-  background-color: ${({ theme }) => theme.bg1};
+  background-color: ${({ isDark }) => (isDark ? "#00324a" : '#9eb9c9')};
   z-index: 9999;
   overflow: scroll;
   :hover {
@@ -50,9 +52,10 @@ const StyledIcon = styled.div`
 function PinnedData({ history, open, setSavedOpen }) {
   const [savedPairs, , removePair] = useSavedPairs()
   const [savedTokens, , removeToken] = useSavedTokens()
+  const [isDark, toggleDarkMode] = useDarkModeManager()
 
   return !open ? (
-    <RightColumn open={open} onClick={() => setSavedOpen(true)}>
+    <RightColumn open={open} isDark={isDark} onClick={() => setSavedOpen(true)}>
       <SavedButton open={open}>
         <StyledIcon>
           <Bookmark size={20} />
@@ -60,7 +63,7 @@ function PinnedData({ history, open, setSavedOpen }) {
       </SavedButton>
     </RightColumn>
   ) : (
-    <RightColumn gap="1rem" open={open}>
+    <RightColumn gap="1rem" open={open} isDark={isDark}>
       <SavedButton onClick={() => setSavedOpen(false)} open={open}>
         <RowFixed>
           <StyledIcon>
