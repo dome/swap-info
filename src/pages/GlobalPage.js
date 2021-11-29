@@ -68,9 +68,9 @@ function GlobalPage() {
       <ThemedBackground backgroundColor={transparentize(0.8, '#00ABFF')} />
       <ContentWrapper>
         <div>
-          { /* Top */ }
+          { /* Top */}
           <AutoColumn gap="24px" style={{ paddingBottom: below800 ? '0' : '24px' }}>
-            <TYPE.largeHeader>{below800 ? 'Protocol Analytics' : 'Sashimiswap Protocol Analytics'}</TYPE.largeHeader>
+            <TYPE.largeHeader>{below800 ? 'Protocol Analytics' : 'MarExchange Protocol Analytics'}</TYPE.largeHeader>
             <Search />
             <GlobalStats />
           </AutoColumn>

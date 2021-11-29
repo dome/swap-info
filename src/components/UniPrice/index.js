@@ -28,7 +28,7 @@ function formatPercent(rawPercent) {
 export default function UniPrice() {
   // todo: 修改稳定币与WETH pair的地址, 注意pair中token的顺序，注意小写
   const stablePair = usePairData(process.env.REACT_APP_STABLE_NATIVE_PAIR_ADDRESS)
-
+  console.log(stablePair)
   const totalLiquidity = useMemo(() => {
     return stablePair
       ? stablePair.trackedReserveUSD

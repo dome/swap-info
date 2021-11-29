@@ -5,7 +5,7 @@ import { useMedia } from 'react-use'
 import { useGlobalData, useEthPrice } from '../../contexts/GlobalData'
 import { formattedNum, localNumber } from '../../utils'
 
-import UniPrice from '../UniPrice'
+// import UniPrice from '../UniPrice'
 import { TYPE } from '../../Theme'
 import { NATIVE_TOKEN_SYMBOL } from '../../constants'
 
@@ -49,7 +49,7 @@ export default function GlobalStats() {
               style={{ position: 'relative' }}
             >
               {NATIVE_TOKEN_SYMBOL} Price: <Medium>{formattedEthPrice}</Medium>
-              {showPriceCard && <UniPrice />}
+              {showPriceCard}
             </TYPE.main>
           )}
 
